@@ -1,0 +1,154 @@
+{
+  "mode": "development",
+  "entry": "C:\\Users\\Phillip.ZWARE\\Source\\multi-framework-micro-single-spa\\packages\\host\\src\\smf-root-config.ts",
+  "output": {
+    "filename": "smf-root-config.js",
+    "libraryTarget": "system",
+    "path": "C:\\Users\\Phillip.ZWARE\\Source\\multi-framework-micro-single-spa\\packages\\host\\dist",
+    "uniqueName": "root-config",
+    "devtoolNamespace": "root-config",
+    "publicPath": ""
+  },
+  "module": {
+    "rules": [
+      {
+        "test": {},
+        "exclude": {},
+        "use": {
+          "loader": "C:\\Users\\Phillip.ZWARE\\Source\\multi-framework-micro-single-spa\\packages\\host\\node_modules\\babel-loader\\lib\\index.js"
+        }
+      },
+      {
+        "test": {},
+        "include": [
+          {},
+          {}
+        ],
+        "use": [
+          {
+            "loader": "C:\\Users\\Phillip.ZWARE\\Source\\multi-framework-micro-single-spa\\packages\\host\\node_modules\\style-loader\\dist\\cjs.js"
+          },
+          {
+            "loader": "C:\\Users\\Phillip.ZWARE\\Source\\multi-framework-micro-single-spa\\packages\\host\\node_modules\\css-loader\\dist\\cjs.js",
+            "options": {
+              "modules": false
+            }
+          }
+        ]
+      },
+      {
+        "test": {},
+        "exclude": {},
+        "type": "asset/resource"
+      },
+      {
+        "test": {},
+        "exclude": {},
+        "type": "asset/source"
+      }
+    ]
+  },
+  "devtool": "source-map",
+  "devServer": {
+    "compress": true,
+    "historyApiFallback": true,
+    "headers": {
+      "Access-Control-Allow-Origin": "*"
+    },
+    "firewall": false,
+    "client": {
+      "host": "localhost"
+    }
+  },
+  "externals": [
+    "single-spa",
+    {}
+  ],
+  "plugins": [
+    {
+      "opts": {
+        "analyzerMode": "disabled",
+        "analyzerHost": "127.0.0.1",
+        "reportFilename": null,
+        "defaultSizes": "parsed",
+        "openAnalyzer": true,
+        "generateStatsFile": false,
+        "statsFilename": "stats.json",
+        "statsOptions": null,
+        "excludeAssets": null,
+        "logLevel": "info",
+        "startAnalyzer": true,
+        "analyzerPort": 8888
+      },
+      "server": null,
+      "logger": {
+        "activeLevels": {}
+      }
+    },
+    {
+      "options": {
+        "systemjsModuleName": "@smf/root-config"
+      }
+    },
+    {
+      "options": {
+        "typescript": {
+          "mode": "write-references"
+        }
+      }
+    },
+    {
+      "_options": {
+        "shared": {
+          "@angular/core": {
+            "singleton": true,
+            "strictVersion": true,
+            "requiredVersion": "12.0.0"
+          },
+          "@angular/common": {
+            "singleton": true,
+            "strictVersion": true,
+            "requiredVersion": "12.0.0"
+          },
+          "@angular/router": {
+            "singleton": true,
+            "strictVersion": true,
+            "requiredVersion": "12.0.0"
+          },
+          "@angular/common/http": {
+            "singleton": true,
+            "strictVersion": true,
+            "requiredVersion": "12.0.0"
+          },
+          "@single-spa": {
+            "singleton": true,
+            "strictVersion": true,
+            "requiredVersion": "12.0.0"
+          }
+        }
+      }
+    },
+    {
+      "userOptions": {
+        "inject": false,
+        "template": "src/index.ejs",
+        "templateParameters": {
+          "isLocal": true,
+          "orgName": "smf"
+        }
+      },
+      "version": 5
+    }
+  ],
+  "resolve": {
+    "extensions": [
+      ".mjs",
+      ".js",
+      ".jsx",
+      ".wasm",
+      ".json",
+      ".ts",
+      ".tsx"
+    ]
+  }
+}

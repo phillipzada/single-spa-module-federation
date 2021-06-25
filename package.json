@@ -1,0 +1,12 @@
+{
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "scripts": {
+    "nuke": "rmdir node_modules /s/q && del package-lock.json",
+    "bootstrap": "lerna bootstrap",
+    "start": "lerna run start --stream"
+  }
+}
