@@ -5,3 +5,9 @@
 **Current problems to solve:**  
   * Shared dependencies to come from the Shell app and initialising correctly  
   * Try and get authentication working in app 2 - to test dependency injection
+
+## Getting started
+
+* `lerna bootstrap`  
+* `npm run start`  
+* open http://localhost:4300/
