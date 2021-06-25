@@ -10,7 +10,11 @@ const routes: Routes = [
 		path: '',
 		children: [
 			{ path: 'a', component: AComponent },
-			{ path: 'b', component: BComponent }
+			{ path: 'b', component: BComponent },
+			{
+				path: 'auth',
+				loadChildren: () => import('./auth/auth.module').then((e) => e.LoginModule)
+			}
 			//
 		]
 	},
@@ -18,8 +22,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [ RouterModule.forRoot(routes) ],
-	exports: [ RouterModule ],
-	providers: [ { provide: APP_BASE_HREF, useValue: '/app1' } ]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule],
+	providers: [{ provide: APP_BASE_HREF, useValue: '/app1' }]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

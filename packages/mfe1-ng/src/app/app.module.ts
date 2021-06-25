@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { BComponent } from './b/b.component';
 import { AComponent } from './a/a.component';
 import { PathLocationStrategy } from '@angular/common';
+import { AuthConfigModule } from './auth/auth-config.module';
 @NgModule({
 	declarations: [ AppComponent, AComponent, BComponent ],
-	imports: [ BrowserModule, AppRoutingModule ],
+	imports: [ BrowserModule, AppRoutingModule, AuthConfigModule ],
 	providers: [ PathLocationStrategy ],
 	bootstrap: [ AppComponent ]
 })

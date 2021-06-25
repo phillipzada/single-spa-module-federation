@@ -1,4 +1,4 @@
-import { enableProdMode, NgZone } from '@angular/core';
+import { enableProdMode, NgZone, CompilerFactory } from '@angular/core';
 import { platformBrowser } from '@angular/platform-browser';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -36,7 +36,7 @@ const lifecycles = singleSpaAngular({
   template: '<mfe1-root />',
   Router,
   NavigationStart,
-  NgZone,
+  NgZone
   // domElementGetter: () => document.getElementsByClassName('.mfe1-root')
 });
 

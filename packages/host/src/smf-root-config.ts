@@ -54,21 +54,42 @@ import "core-js/stable";
 
 const loadingFns = {
   // @ts-ignore
-  mfe1: () => {
-    //=> import("mfe1/MFE1"), //=> {
+ // mfe1: () => import("mfe1/MFE1"), 
     // @ts-ignore
+  mfe1: ()=> {
     return loadRemoteModule({
       remoteEntry: "http://localhost:4301/remoteEntry.js",
       remoteName: "mfe1",
       exposedModule: "./MFE1",
     });
   },
+  nav: ()=> {
+    return loadRemoteModule({
+      remoteEntry: "http://localhost:4303/remoteEntry.js",
+      remoteName: "nav",
+      exposedModule: "./App",
+    });
+  },
+  mfe2: ()=> {
+    return loadRemoteModule({
+      remoteEntry: "http://localhost:4302/remoteEntry.js",
+      remoteName: "mfe2",
+      exposedModule: "./App",
+    });
+  },
+  app3: ()=> {
+    return loadRemoteModule({
+      remoteEntry: "http://localhost:4304/remoteEntry.js",
+      remoteName: "app3",
+      exposedModule: "./App",
+    });
+  },
   // @ts-ignore
-  mfe2: () => import("mfe2/App"),
+  // mfe2: () => import("mfe2/App"),
   // @ts-ignore
-  nav: () => import("nav/App"),
+  // nav: () => import("nav/App"),
   // @ts-ignore
-  app3: () => import("app3/App"),
+  // app3: () => import("app3/App"),
   // app2: () => import('./app2')
 };
 
