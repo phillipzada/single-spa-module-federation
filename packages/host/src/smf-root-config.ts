@@ -1,14 +1,10 @@
-import { navigateToUrl, registerApplication, start } from "single-spa";
-import {
-  constructApplications,
-  constructRoutes,
-  constructLayoutEngine,
-} from "single-spa-layout";
-import microfrontendLayout from "./microfrontend-layout.html";
-import { loadRemoteModule } from "./dynamic-loader/loader";
+import { navigateToUrl, registerApplication, start } from 'single-spa';
+import { constructApplications, constructRoutes, constructLayoutEngine } from 'single-spa-layout';
+import microfrontendLayout from './microfrontend-layout.html';
+import { loadRemoteModule } from './dynamic-loader/loader';
 // import { loadRemoteModule } from "@angular-architects/module-federation";
-import "regenerator-runtime/runtime";
-import "core-js/stable";
+import 'regenerator-runtime/runtime';
+import 'core-js/stable';
 
 // function loadRemoteModule(args) {
 //   if (!args.remoteEntry) {
@@ -52,69 +48,69 @@ import "core-js/stable";
 //   };
 // }
 
+import('@angular/common');
+import('@angular/core');
+import('@angular/platform-browser');
+import('@angular/platform-browser-dynamic');
+import('@angular/common/http');
+
 const loadingFns = {
-  // @ts-ignore
- // mfe1: () => import("mfe1/MFE1"), 
-    // @ts-ignore
-  mfe1: ()=> {
-    return loadRemoteModule({
-      remoteEntry: "http://localhost:4301/remoteEntry.js",
-      remoteName: "mfe1",
-      exposedModule: "./MFE1",
-    });
-  },
-  nav: ()=> {
-    return loadRemoteModule({
-      remoteEntry: "http://localhost:4303/remoteEntry.js",
-      remoteName: "nav",
-      exposedModule: "./App",
-    });
-  },
-  mfe2: ()=> {
-    return loadRemoteModule({
-      remoteEntry: "http://localhost:4302/remoteEntry.js",
-      remoteName: "mfe2",
-      exposedModule: "./App",
-    });
-  },
-  app3: ()=> {
-    return loadRemoteModule({
-      remoteEntry: "http://localhost:4304/remoteEntry.js",
-      remoteName: "app3",
-      exposedModule: "./App",
-    });
-  },
-  // @ts-ignore
-  // mfe2: () => import("mfe2/App"),
-  // @ts-ignore
-  // nav: () => import("nav/App"),
-  // @ts-ignore
-  // app3: () => import("app3/App"),
-  // app2: () => import('./app2')
+	// @ts-ignore
+	// mfe1: () => import("mfe1/MFE1"),
+	// @ts-ignore
+	mfe1: () => {
+		return loadRemoteModule({
+			remoteEntry: 'http://localhost:4301/remoteEntry.js',
+			remoteName: 'mfe1',
+			exposedModule: './MFE1'
+		});
+	},
+	// @ts-ignore
+	// nav: () => import('nav/App'),
+	// mfe2: () => {
+	// 	return loadRemoteModule({
+	// 		remoteEntry: 'http://localhost:4302/remoteEntry.js',
+	// 		remoteName: 'mfe2',
+	// 		exposedModule: './App'
+	// 	});
+	// },
+	// app3: () => {
+	// 	return loadRemoteModule({
+	// 		remoteEntry: 'http://localhost:4304/remoteEntry.js',
+	// 		remoteName: 'app3',
+	// 		exposedModule: './App'
+	// 	});
+	// }
+	// @ts-ignore
+	mfe2: () => import("mfe2/App"),
+	// @ts-ignore
+	nav: () => import("nav/App"),
+	// @ts-ignore
+	app3: () => import("app3/App"),
 };
 
-(async () => {
-  await __webpack_init_sharing__("default");
-})();
+// (async () => {
+//   await __webpack_init_sharing__("default");
+// })();
 
 const routes = constructRoutes(microfrontendLayout);
 const applications = constructApplications({
-  routes,
-  loadApp: ({ name }) => {
-    return loadingFns[name]();
-  },
+	routes,
+	loadApp: ({ name }) => {
+		return loadingFns[name]();
+	}
 });
 const layoutEngine = constructLayoutEngine({ routes, applications });
 
 const callBack = (s) => {
-  navigateToUrl(s);
+	navigateToUrl(s);
 };
 applications.forEach(
-  (e) =>
-    (e.customProps = {
-      test: "1",
-      callBack,
-    })
+	(e) =>
+		(e.customProps = {
+			test: '1',
+			callBack
+		})
 );
 
 applications.forEach(registerApplication);
@@ -122,5 +118,5 @@ applications.forEach(registerApplication);
 layoutEngine.activate();
 
 setTimeout(() => {
-  start();
+	start();
 }, 1000);

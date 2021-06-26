@@ -25,7 +25,7 @@ async function initRemote(remoteName: string) {
 
   // Do we still need to initialize the share scope?
   if (!isDefaultScopeInitialized) {
-    // await __webpack_init_sharing__("default"); stops race condition
+    // await __webpack_init_sharing__("default");// stops race condition
     isDefaultScopeInitialized = true;
   }
 
