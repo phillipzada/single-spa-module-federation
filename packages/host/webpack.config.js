@@ -98,20 +98,13 @@ module.exports = (webpackConfigEnv, argv) => {
       new ModuleFederationPlugin({
         name: "root",
         remotes: {
+           dep: "dep@http://localhost:4310/remoteEntry.js",
           // mfe1: "mfe1@http://localhost:4301/remoteEntry.js",
           // mfe2: "mfe2@http://localhost:4302/remoteEntry.js",
           // nav: "nav@http://localhost:4303/remoteEntry.js",
           // app3: "app3@http://localhost:4304/remoteEntry.js",
         },
-        shared: {
-          "@angular/core": { singleton: true, eager: true },
-          "@angular/common": { singleton: true, eager: true },
-          "@angular/router": { singleton: true, eager: true },
-          "@angular/platform-browser-dynamic": { singleton: true, eager: true },
-          react: { singleton: true, eager: true },
-          "react-dom": { singleton: true, eager: true },
-          rxjs: { singleton: true, eager: true },
-        },
+        shared: {},
       }),
       new HtmlWebpackPlugin({
         template: "./public/index.html",
